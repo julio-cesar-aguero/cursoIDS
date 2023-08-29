@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 9</title>
+  </head>
+  <script>
+    const productos = [
+      {
+        año: 2020,
+        nombre: "telefono",
+        marca: "Sony",
+        costo: "10000",
+        cantidad: 4,
+      },
+      {
+        año: 2020,
+        nombre: "tablet",
+        marca: "Apple",
+        costo: "10000",
+        cantidad: 2,
+      },
+      {
+        año: 2023,
+        nombre: "Pc",
+        marca: "Samsung",
+        costo: "10000",
+        cantidad: 4,
+      },
+
+      {
+        año: 2019,
+        nombre: "Pc",
+        marca: "Dell",
+        costo: "10000",
+        cantidad: 1,
+      },
+    ];
+    let productosMap = productos.map((producto) => {
+      return producto;
+    });
+    console.log("productos", productosMap);
+  </script>
+  <style>
+    table th {
+      padding: 0.6em;
+      border: 1px solid #333333;
+    }
+  </style>
+  <body>
+    <h2>Informacion sobre el producto</h2>
+    <small>Datos basicos</small>
+    <section
+      style="
+        border: 2px solid #777777;
+        padding: 1em;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      "
+    >
+      <br />
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" />
+      <br />
+      <label for="nombre">Descripcion:</label>
+      <textarea type="text" id="nombre" name="nombre"></textarea>
+      <br />
+      <label for="imagen">Foto:</label>
+      <input type="file" name="" id="" />
+      <br />
+      <div>
+        <input type="checkbox" name="visitas" id="visitas" value="visitas" />
+        <label for="visitas">Añadir contador de visitas</label>
+      </div>
+    </section>
+    <small>Datos economicos</small>
+    <section
+      style="
+        border: 2px solid #777777;
+        padding: 1em;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      "
+    >
+      <div>
+        <label for="precio">Precio</label>
+        <input type="text" name="precio" id="precio" />$
+        <label for="inputLista">Impuestos</label>
+        <input list="listaCantidades" name="inputLista" />
+        <datalist id="listaCantidades">
+          <option value="10%"></option>
+          <option value="16%"></option>
+          <option value="4%"></option>
+          <option value="otro"></option>
+        </datalist>
+      </div>
+      <br />
+      <label for="">Capital de noruega:</label>
+      <div>
+        <div>
+          <input type="radio" id="Ninguno" name="promocion" value="Ninguno" />
+          <label for="Ninguno">Ninguno</label>
+        </div>
+        <div>
+          <input type="radio" id="Gratis" name="promocion" value="Gratis" />
+          <label for="Gratis">Transporte gratuito</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="Descuento"
+            name="promocion"
+            value="Descuento"
+          />
+          <label for="Descuento">Descuento 5%</label>
+        </div>
+      </div>
+      <table id="table"></table>
+    </section>
+  </body>
+  <script>
+    let table = document.getElementById("table");
+    table.innerHTML +=
+      `<caption>Análisis de ventas anuales</caption>
+  <thead>
+    <tr>
+      <th rowspan="2" scope="col">AÑO</th>
+      <th colspan="4" scope="col">Expansión de ventas</th>
+    </tr>
+    <tr>
+      <th scope="col">Producto A</th>
+      <th scope="col">Producto B</th>
+      <th scope="col">Producto C</th>
+      <th scope="col">Producto D</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th rowspan="2" scope="col">AÑO</th>
+      ` +
+      productos.map((producto) => {
+        return '<th scope="col">' + producto.nombre + "</th>";
+      }) +
+      `
+      </tr>
+    <tr>
+      <th colspan="4" scope="col">Expansión de ventas</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    ` +
+      productos.map((producto) => {
+        return `<tr>
+      <th scope="row">`+producto.año+`</th><td>`+producto.cantidad+`</td><td>`+producto.cantidad+`</td><td>`+producto.cantidad+`</td><td>`+producto.cantidad+`</td>
+    </tr>`;
+      }) +
+      `
+    
+  </tbody>`;
+  </script>
+</html>

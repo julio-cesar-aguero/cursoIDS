@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+div{
+    color: red;
+    padding: 8px;
+}
+div{
+    color: blue;
+    background-color: grey;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 8</title>
+  </head>
+  <body>
+    <header>
+      <h1>Ejercicio 8</h1>
+    </header>
+
+    <form>
+      <small>Datos personales</small>
+      <div style="border: 2px solid #898989; padding: 1em">
+        <br />
+        <label for="">Nombre:</label>
+        <input type="text" required/>
+        <br />
+        <label for=" number">Edad:</label>
+        <input type="number" name="number" id="number" />
+      </div>
+      <small>Cultura general</small>
+      <div style="border: 2px solid #898989; padding: 1em">
+        <label for="">Capital de noruega:</label>
+        <div>
+          <input
+            type="radio"
+            id="Copenhague"
+            name="contact"
+            value="Copenhague"
+          />
+          <label for="Copenhague">Copenhague</label>
+
+          <input
+            type="radio"
+            id="Helsinki"
+            name="contact"
+            value="Helsinki"
+          />
+          <label for="Helsinki">Helsinki</label>
+
+          <input type="radio" id="Oslo" name="contact" value="Oslo" />
+          <label for="Oslo">Oslo</label>
+        </div>
+        <label for="">Fecha de la revolucion francesa:</label>
+        <div>
+          <input
+            type="radio"
+            id="year1"
+            name="year"
+            value="1492"
+          />
+          <label for="year1">1492</label>
+
+          <input
+            type="radio"
+            id="year2"
+            name="year"
+            value="1789"
+          />
+          <label for="year2">1789</label>
+
+          <input type="radio" id="year3" name="year" value="1917" />
+          <label for="year3">1917</label>
+        </div>
+      </div>
+      <br />
+      <input type="submit" value="Enviar" />
+      <input type="button" value="Borrar" />
+    </form>
+    <section>
+        <h2>HTML5 number input</h2>
+    <h3>Ejemplo 1</h3>
+    <form action="">
+        <span>introduce tu edad:</span>
+        <input type="number" inputmode="numeric" pattern="\d*"> 
+        <button type="submit">Enviar</button>    
+    </form>
+    <h3>Ejemplo 2</h3>
+    <form action="">
+        <span>introduce tu edad(min = 18, max=99,campo obligatorio):</span>
+        <input type="text" min="18" max="99" required > 
+        <button type="submit">Enviar</button>    
+    </form>
+    <h3>Ejemplo 1</h3>
+    <form action="">
+        <span>introduce tu edad(min = 18, max=99,campo obligatorio):</span>
+        <input type="number" min="18" max="99" required > 
+        <button type="submit">Enviar</button>    
+    </form>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5</title>
+  </head>
+  <body>
+    <form action="">
+      <section>
+        <p>Output</p>
+        <fieldset
+          oninput="result.value=parseInt(first.value)+parseInt(second.value)"
+        >
+          <label for="first">first input</label>
+          <input type="range" id="first" name="first" value="30" /> +
+          <label for="second">second input</label>
+          <input type="number" id="second" name="second" value="10" /> =
+          <output name="result" for="first second">40</output>
+        </fieldset>
+      </section>
+      <section>
+        <p>Number</p>
+        <fieldset>
+          <label for="number">number:</label>
+          <input type="number" id="number" name="number" value="30" />
+        </fieldset>
+      </section>
+      <section>
+        <p>Tel</p>
+        <fieldset>
+          <label for="tel">Telefono:</label>
+          <input type="tel" id="tel" name="tel" value="58" />
+        </fieldset>
+      </section>
+      <section>
+        <p>Email</p>
+        <fieldset>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value="julio.aguero@gmail.com"
+          />
+        </fieldset>
+      </section>
+      <section>
+        <p>Color</p>
+        <fieldset>
+          <label for="color">Color:</label>
+          <input type="color" id="color" name="color" value="#333333" />
+        </fieldset>
+      </section>
+      <section>
+        <p>Search</p>
+        <fieldset>
+          <label for="search">Search:</label>
+          <input type="search" id="search" name="search" value="30" />
+        </fieldset>
+      </section>
+      <section>
+        <p>Date</p>
+        <fieldset>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" value="30" />
+        </fieldset>
+      </section>
+      <section>
+        <p>Datetime</p>
+        <fieldset>
+          <label for="datetime">Datetime:</label>
+          <input
+            type="datetime"
+            id="datetime"
+            name="datetime"
+            value="2018-06-12T19"
+            min="2018-06-07T00"
+            max="2018-06-14T00"
+          />
+        </fieldset>
+      </section>
+      <section>
+        <p>Datetime-local</p>
+        <fieldset>
+          <label for="datetime-local">Datetime-local:</label>
+          <input type="datetime-local" id="datetime-local" name="datetime-local" />
+        </fieldset>
+      </section>
+      <section>
+        <p>Month</p>
+        <fieldset>
+          <label for="month">Month:</label>
+          <input type="month" id="month" name="month" min="2023-03" value="2023-05" />
+        </fieldset>
+      </section>
+      <section>
+        <p>Time</p>
+        <fieldset>
+          <label for="time">Time:</label>
+          <input type="time" id="time" name="time" min="09:00" max="18:00" required  />
+        </fieldset>
+      </section>
+      <section>
+        <p>Week</p>
+        <fieldset>
+          <label for="week">Week:</label>
+          <input type="week" id="week" name="week"  />
+        </fieldset>
+      </section>
+      <section>
+        <p>DataList</p>
+        <fieldset>
+          <label for="inputLista">Lista de colores</label>
+          <input list="listacolores" name="inputLista" />
+          <datalist id="listacolores">
+            <option value="Azul"></option>
+            <option value="Rojo"></option>
+            <option value="Amarillo"></option>
+            <option value="Negro"></option>
+            <option value="Blanco"></option>
+          </datalist>
+        </fieldset>
+      </section>
+      <section>
+        <p>Url input</p>
+        <fieldset>
+          <label for="url">Lista urls</label>
+          <input
+            type="url"
+            name="url"
+            id="url"
+            placeholder="https://example.com"
+            pattern="https://.*"
+            size="30"
+            list="listaurls"
+            required
+          />
+          <datalist id="listaurls">
+            <option value="https://www.google.com" label="by google"></option>
+            <option value="https://www.msn.com" label="by msn"></option>
+          </datalist>
+        </fieldset>
+      </section>
+      <section>
+        <p>Range</p>
+        <fieldset>
+          <label for="range">Rangos</label>
+          <input
+            type="range"
+            list="listanums"
+            step="1"
+            name="range"
+            max="6"
+            min="0"
+          />
+          <datalist id="listanums">
+            <option value="0" label="cero"></option>
+            <option value="1" label="uno"></option>
+            <option value="2" label="dos"></option>
+            <option value="3" label="tres"></option>
+            <option value="4" label="cuatro"></option>
+            <option value="5" label="cinco"></option>
+          </datalist>
+        </fieldset>
+      </section>
+      <br />
+      <input type="submit" name="btn_enviar" value="Enviar" />
+      <input type="reset" name="btn_limpiar" value="Limpiar" />
+    </form>
+  </body>
+</html>
