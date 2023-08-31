@@ -3,6 +3,25 @@
     padding: 0;
     margin: 0;
 }
-p{
-    color: red;
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table{
+    border: 2px solid;
+}
+thead{
+    background-color: rgb(156, 199, 255);
+}
+th{
+    padding: 1em;
+    border: 2px solid;
+}
+.row{
+    background-color: rgb(224, 228, 103);
+}
+.bottom-table{
+    background-color: greenyellow;
 }

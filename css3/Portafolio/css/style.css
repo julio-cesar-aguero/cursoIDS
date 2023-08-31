@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root{
+    --primary-color: #050816;
+    --secondary-color: #aaa6c3;
+    --text-color: hsl(0, 0%, 31%);
+    --bg-color: hsl(3, 1%, 90%);
+    --bg-card-color: hsl(3, 1%, 98%);
+    --border-radius: 0.4em;
+    --transition: color 0.3s, background-color 5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    --skills-bar-length: 0%;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: var(--primary-color);
+}
+body{
+    font-family: 'Poppins, sans-serif';
+}
+.container{
+    width: 100%;
+    
+}
+nav{
+    width: 100%;
+    align-items: center;
+    padding: 5em 0;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    background-color: var(--primary-color);
+}
+.navbar .container__navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+.container__navbar a{
+    display: flex;
+
+    align-items: center;
+    gap: 2;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
+.container__navbar a p{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: bold;
+    cursor: pointer;
+}
+.container__navbar ul{
+    width: 40%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 10;
+}
+.container__navbar ul li{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/*About us*/
+.about__container,
+.work__container,
+.contact__container
+{
+    height: 100vh;
+    color: var(--secondary-color);
+}
+.about__head{
+    padding-top: 300px;
+}
+.about__container p{
+    margin-top: 20px;
+    color: var(--secondary-color);
+    width: 30%;
+}
