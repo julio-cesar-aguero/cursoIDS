@@ -4,30 +4,10 @@
     margin: 0;
 }
 div{
-    background-color: blue;
-    background-color: transparent;
-    background-color: lightpink;
-    background-color: rebeccapurple;
+    color: red;
+    padding: 8px;
 }
-/*
-RGB
 div{
-    background-color: rgb(125, 80 ,10);
-    background-color: rgb(0,  0, 34);
-    color: rgb(255, 255, 0);
+    color: blue;
+    background-color: grey;
 }
-
-Hexadecimal
-div{
-    background-color: rgb(125, 80 ,10);
-    background-color: rgb(0,  0, 34);
-    color: rgb(255, 255, 0);
-}
-
-Hsl
-div{
-    background-color: rgb(125, 80 ,10);
-    background-color: rgb(0,  0, 34);
-    color: rgb(255, 255, 0);
-}
-*/

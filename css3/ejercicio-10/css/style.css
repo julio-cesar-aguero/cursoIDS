@@ -3,25 +3,38 @@
     padding: 0;
     margin: 0;
 }
-body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+p{
+    color: blue;
 }
-table{
-    border: 2px solid;
+a:link{
+    color: green;
+    font-weight: bold;
 }
-thead{
-    background-color: rgb(156, 199, 255);
+a:visited{
+    color: purple;
+    font-weight: bold;
 }
-th{
-    padding: 1em;
-    border: 2px solid;
+
+a:hover{
+    color: cyan;
+    font-weight: bold;
 }
-.row{
-    background-color: rgb(224, 228, 103);
+a:active{
+    border: 2px solid #FF0000;
+    padding: 2px;
 }
-.bottom-table{
-    background-color: greenyellow;
+input:focus{
+    border: 2px dotten #444;
+}
+input:checked + span{
+    background-color: orange;
+    padding: 4px;
+}
+input:read-only{
+    background-color: darkred;
+    color: white;
+}
+input{
+    background-color: green;
+    color: white;
 }

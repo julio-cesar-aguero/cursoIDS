@@ -1,14 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Ejercicio 12  css</title>
-</head>
-<body>
-    <div>box 1</div>
-    <div>box 2</div>
-    <div>box 3</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Ejercicio 11 css</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="2" scope="col">Vehicle #</th>
+          <th rowspan="2" scope="col">Category</th>
+          <th rowspan="2" scope="col">Year</th>
+          <th rowspan="2" scope="col">Make</th>
+          <th rowspan="2" scope="col">Model</th>
+          <th rowspan="2" scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="row">1</th>
+          <th rowspan="2" scope="row">Antique</th>
+          <th>1957</th>
+          <th>Ford</th>
+          <th>Thunderbird</th>
+          <th>14,000</th>
+        </tr>
+        <tr>
+          <th class="row">2</th>
+          <th>1958</th>
+          <th>Chevrolet</th>
+          <th>Impala</th>
+          <th>3,000</th>
+        </tr>
+
+        <tr>
+          <th class="row">3</th>
+          <th rowspan="2">Non-Antique</th>
+          <th>2012</th>
+          <th>BMW</th>
+          <th>Z4</th>
+          <th>40,000</th>
+        </tr>
+        <tr>
+          <th class="row">4</th>
+          <th>2003</th>
+          <th>Mazda</th>
+          <th>Miata</th>
+          <th>5,000</th>
+        </tr>
+        <tr class="bottom-table">
+          <th colspan="5">Total</th>
+          <th>62,200</th>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
