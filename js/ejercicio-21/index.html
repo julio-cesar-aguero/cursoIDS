@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const mesNombre = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre",
+      ];
+      let mes,
+        opcion = false;
+      while (opcion == false) {
+        mes = prompt(
+          "introduce un numero del 1 - 12 cada número respresenta un mes del año?"
+        );
+        if (mes >= 1 && mes <= 12) {
+          if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+            document.write(
+              `El mes elegido es ${mesNombre[mes - 1]} y tiene 30 dias`
+            );
+          } else if (mes == 2) {
+            document.write(
+              `El mes elegido es ${mesNombre[mes - 1]} y tiene 28 dias`
+            );
+          } else {
+            document.write(
+              `El mes elegido es ${mesNombre[mes - 1]} y tiene 31 dias`
+            );
+          }
+          opcion = true;
+        }
+      }
+    </script>
+  </body>
+</html>

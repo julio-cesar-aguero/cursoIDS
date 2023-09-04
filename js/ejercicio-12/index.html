@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+</head>
+<body>
+    <div id="resultado">
+
+    </div>
+    <script>
+        let dato;
+        let numero1 = 0;
+        let numero2 = 0;
+
+        dato = window.prompt('Introduce un número ?')
+        numero1 = parseInt(dato);
+        
+        dato = window.prompt('Introduce otro número ?')
+        numero2 = parseInt(dato);
+
+        let resta = numero1 - numero2;
+        let multi = numero1 * numero2;
+        document.getElementById('resultado').innerHTML = (`Resultado de la resta de ${numero1} - ${numero2} es: ${resta}`);
+        document.getElementById('resultado').innerHTML += (`<br> Resultado de la multiplicacion de ${numero1} * ${numero2} es: ${multi}`);
+
+    </script>
+</body>
+</html>

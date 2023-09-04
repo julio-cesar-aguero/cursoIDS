@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 37 JS</title>
+  </head>
+
+  <body>
+    <label for="celsius">Celsius:</label>
+    <input type="number" name="celsius" id="celsius" required />
+    <button onclick="CelsiusToFahrenheit()">Enviar</button>
+    <div id="resultado">
+      <br />
+      <span>Resultado:</span>
+      <br />
+      <label for="fah">Fahrehein:</label>
+      <input type="number" name="fah" id="fah" value="0" />
+      <button onclick="Fahrenheit()">Calcula</button>
+    </div>
+    <br />
+    <div id="message"></div>
+    <script>
+      function CelsiusToFahrenheit() {
+        var celsiusAux = document.getElementById("celsius").value;
+        resultado = (celsiusAux * 9) / 5 + 32;
+        document.getElementById("fah").value = resultado;
+      }
+      function Fahrenheit() {
+        let fahTemp = parseInt(document.getElementById("fah").value);
+        console.log("fah ", fahTemp);
+        if (fahTemp >= 14 && fahTemp < 32) {
+          document.getElementById("message").innerHTML = "Temperatura baja";
+        } else if (fahTemp >= 32 && fahTemp < 68) {
+          document.getElementById("message").innerHTML = "Temperatura adecuada";
+        } else if (fahTemp >= 68 && fahTemp <= 96) {
+          document.getElementById("message").innerHTML = "Temperatura alta";
+        } else {
+          document.getElementById("message").innerHTML =
+            "Temperatura desconocida";
+        }
+      }
+    </script>
+  </body>
+</html>
