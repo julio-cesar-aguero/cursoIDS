@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class libros {
+        constructor() {
+          this.data = [
+            {
+              id: "978-0641723445",
+              cat: ["book", "hardcover"],
+              name: "The Lightning Thief",
+              author: "Rick Riordan",
+              series_t: "Percy Jackson and the Olympians",
+              genre_s: "fantasy",
+              inStock: true,
+              price: 12,
+              pages_i: 384,
+            },
+            {
+              id: "978-1857995879",
+              cat: ["book", "paperback"],
+              name: "Sophie's World : The Greek Philosophers",
+              author: "Jostein Gaarder",
+              genre_s: "fantasy",
+              inStock: true,
+              price: 3,
+              pages_i: 64,
+            },
+            {
+              id: "978-1933988177",
+              cat: ["book", "paperback"],
+              name: "Lucene in Action, Second Edition",
+              author: "Michael McCandless",
+              genre_s: "IT",
+              inStock: true,
+              price: 30,
+              pages_i: 475,
+            },
+            {
+              id: "978-1933988178",
+              cat: ["book", "paperback"],
+              name: "Lucene in Action, Third Edition",
+              author: "Michael McCandless",
+              genre_s: "IT",
+              inStock: true,
+              price: 30,
+              pages_i: 475,
+            },
+            ,
+            {
+              id: "978-1857995979",
+              cat: ["book", "paperback"],
+              name: "Sophie's World : The Greek Philosophers II",
+              author: "Jostein Gaarder",
+              genre_s: "fantasy",
+              inStock: true,
+              price: 30,
+              pages_i: 64,
+            },
+          ];
+        }
+        todos() {
+          console.log("data", this.data);
+          this.data.map((dato, index) => {
+            document.getElementById("container").innerHTML += `
+            <div class='card'>
+                <small>Libro: ${index + 1}</small>
+                <span>Nombre: ${dato.name}</span>
+                <small>Author: ${dato.author}</span>
+                <br>
+                <span>Precio: ${dato.price}</span>
+            <div>
+            `;
+          });
+        }
+        precio() {
+          console.log("data", this.data);
+          this.data.map((dato, index) => {
+            if (dato.price > 20) {
+              document.getElementById("container").innerHTML += `
+            <div class='card'>
+                <small>Libro: ${index + 1}</small>
+                <span>${dato.name}</span>
+                <small>${dato.author}</span>
+                <span>${dato.price}</span>
+            <div>
+            `;
+            }
+          });
+        }
+        author() {
+          var authores = [];
+          document.getElementById("selectA").innerHTML += `
+            ${this.data.map((dato) => {
+              if (!authores.includes(dato.author)) {
+                authores.push(dato.author);
+                console.log(authores);
+                return `<option value ="${dato.author}">${dato.author}</option>`;
+              }
+            })}
+            `;
+        }
+        ordenarAuthor(author) {
+          this.data.map((dato, index) => {
+            if (dato.author === author) {
+              document.getElementById("container").innerHTML += `
+            <div class='card'>
+                <small>Libro: ${index + 1}</small>
+                <span>Nombre: ${dato.name}</span>
+                <small>Author: ${dato.author}</span>
+                <br>
+                <span>Precio: ${dato.price}</span>
+            <div>
+            `;
+            }
+          });
+        }
+      }
+      function apilar(event) {
+        event.preventDefault();
+        document.getElementById("container").innerHTML = ``;
+        var obj = new libros();
+        obj.ordenarAuthor(event.target.value);
+      }
+      function General(valor) {
+        document.getElementById("container").innerHTML = ``;
+        var obj = new libros();
+        if (valor == 1) {
+          obj.todos();
+        } else if (valor == 2) {
+          obj.precio();
+        } else {
+          document.getElementById("container-select").innerHTML = `
+            <select id="selectA" onchange="apilar(event)">
+            </select>
+            `;
+          obj.author();
+        }
+      }
+    </script>
+    <style>
+      .container {
+        background-color: rgba(95, 136, 250, 0.599);
+        width: 90%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 1em 0.3em;
+        margin: 1.5em;
+        border-radius: 1em;
+        border: 2px solid black;
+      }
+      .card {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        border: 2px solid black;
+        margin: 0.5em;
+      }
+      .card span {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bienvenido</h1>
+    <div class="div">
+      <button onclick="General(1)">Ver todos los libros</button>
+      <button onclick="General(2)">Libros Mayor de 20$</button>
+      <button onclick="General(3)">Por autor</button>
+    </div>
+    <div id="container-select"></div>
+    <div id="container" class="container"></div>
+  </body>
+</html>

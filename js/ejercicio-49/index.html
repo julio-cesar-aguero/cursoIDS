@@ -1,43 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>ECMA6 - Clases1</title>
-    <!-- Teoria: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <script>
-      class EntradaDatos {
-        constructor() {
-          let nombre;
-          let contrasenya;
-          this.nombre = "admin";
-          this.contrasena = "1234";
+      var alturaAdulto = (function () {
+        alturaAux = 176;
+        edadMax = 16;
+        return{
+          promedioAltura: function(altura,edad){
+            var auxEdad = edad;
+            if(edad > edadMax){
+              auxEdad = edadMax;
+            }
+            var PromedioAlt = (auxEdad * 12) / alturaAux;
+            return PromedioAlt;
+          },
+          alturaMaxima: function(altura, edad, promedio){
+            var alturaMax;
+            if(edad >= edadMax){
+              return alturaMax = altura;
+            }else{
+              var edadAux = ((edadMax - edad)*12)*promedio;
+              return alturaMax = altura + edadAux;
+            }
+          }
+
         }
-        introduceNombre() {
-          let valorEntrada = document.formEntrada.txtInicial.value;
-          if (this.compruebaNombre(valorEntrada)) this.nombre = valorEntrada;
-          else this.nombre = "No valido";
-        }
-        compruebaNombre(valor) {
-          let flag = true;
-          if (valor == null || valor == "") flag = false;
-          return flag;
-        }
-        verNombre() {
-          return this.nombre;
-        }
-      }
-      function programa() {
-        let obj = new EntradaDatos();
-        obj.introduceNombre();
-        document.writeln(`El nombre es ${obj.verNombre()} <br>`);
+
+      })();
+
+      function Calcula(event){
+        event.preventDefault();
+        var edad = parseInt(event.target[0].value);
+        var altura = parseInt(event.target[1].value);
+        var promedio = alturaAdulto.promedioAltura(altura,edad);
+        var alturaAdult = alturaAdulto.alturaMaxima(altura, edad, promedio)
+        
+        document.getElementById('resultado').innerHTML = `
+        <h2>Su altura aproximada es:</h2>
+        <br>
+        <h3>${alturaAdult} (CM)</h3>
+        `
       }
     </script>
   </head>
   <body>
-    <h3>Clase Entrada Datos</h3>
-    <form name="formEntrada">
-      <input type="text" name="txtInicial" />
-      <input type="button" value="Pulsa aquí" onclick="programa()" />
+    <form onsubmit="Calcula(event)">
+      <label for="">Ingresa tu edad(años)</label>
+      <input type="number" required />
+      <label for="">Ingresa tu altura(CM 1 M = 100cm)</label>
+      <input type="number" value="100" required />
+      <input type="submit" value="Enviar" />
     </form>
+    <div id="resultado">
+
+    </div>
   </body>
 </html>

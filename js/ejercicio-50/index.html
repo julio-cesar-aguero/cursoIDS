@@ -2,42 +2,53 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>ECMA6 - Clases1</title>
-    <!-- Teoria: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes -->
+
+    <style type="text/css">
+      #contenedor {
+        position: relative;
+        background-color: #c0c0c0;
+      }
+      #cuadrado1 {
+        background-color: #00ff00;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 100px;
+        top: 100px;
+      }
+    </style>
     <script>
-      class EntradaDatos {
+      class Cuadrado {
         constructor() {
-          let nombre;
-          let contrasenya;
-          this.nombre = "admin";
-          this.contrasena = "1234";
+          this.posX = Cuadrado.incrementa;
+          console.log(this.posX);
         }
-        introduceNombre() {
-          let valorEntrada = document.formEntrada.txtInicial.value;
-          if (this.compruebaNombre(valorEntrada)) this.nombre = valorEntrada;
-          else this.nombre = "No valido";
+
+        static get incrementa() {
+          Cuadrado.numero = (Cuadrado.numero || 100) + 20;
+          return Cuadrado.numero;
         }
-        compruebaNombre(valor) {
-          let flag = true;
-          if (valor == null || valor == "") flag = false;
-          return flag;
+
+        establecerPosX1(name) {
+          document.getElementById(name).style.left = this.posX + "px";
         }
-        verNombre() {
-          return this.nombre;
+
+        salirPantalla(name) {
+          let cadena = "Posición:" + this.posX;
+          document.getElementById(name).innerHTML = cadena;
         }
       }
-      function programa() {
-        let obj = new EntradaDatos();
-        obj.introduceNombre();
-        document.writeln(`El nombre es ${obj.verNombre()} <br>`);
+
+      function incrementar(nom) {
+        objCuadrado = new Cuadrado();
+        objCuadrado.establecerPosX1(nom);
+        objCuadrado.salirPantalla(nom);
       }
     </script>
   </head>
   <body>
-    <h3>Clase Entrada Datos</h3>
-    <form name="formEntrada">
-      <input type="text" name="txtInicial" />
-      <input type="button" value="Pulsa aquí" onclick="programa()" />
-    </form>
+    <div id="contenedor">
+      <div id="cuadrado1" onclick="incrementar('cuadrado1')"></div>
+    </div>
   </body>
 </html>
