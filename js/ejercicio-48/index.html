@@ -2,42 +2,155 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>ECMA6 - Clases1</title>
-    <!-- Teoria: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes -->
+    <title>Modules - Object Interface</title>
+
     <script>
-      class EntradaDatos {
-        constructor() {
-          let nombre;
-          let contrasenya;
-          this.nombre = "admin";
-          this.contrasena = "1234";
-        }
-        introduceNombre() {
-          let valorEntrada = document.formEntrada.txtInicial.value;
-          if (this.compruebaNombre(valorEntrada)) this.nombre = valorEntrada;
-          else this.nombre = "No valido";
-        }
-        compruebaNombre(valor) {
-          let flag = true;
-          if (valor == null || valor == "") flag = false;
-          return flag;
-        }
-        verNombre() {
-          return this.nombre;
-        }
+      var rectanguloISO = (function () {
+        return {
+          perimetro: function (base, altura) {
+            var calculoperimetro = 2 * (parseInt(altura) + parseInt(base));
+            return "El perimetro es " + calculoperimetro;
+          },
+
+          area: function (base, altura) {
+            var calculoarea = altura * base;
+            return "El area es " + calculoarea;
+          },
+        }; // fin return
+      })(); //fin function
+
+      var trianguloISO = (function () {
+        // Variable privada interna
+        var numero = 0;
+
+        return {
+          perimetro: function (base, altura) {
+            // a^2 + b^2 = c^2
+            //perimetro = l + l + l
+
+            var a = parseInt(altura);
+            var b = parseInt(base) / 2;
+            var a2 = Math.pow(a, 2);
+            var b2 = Math.pow(b, 2);
+            var c = a2 + b2;
+            console.log("c", c);
+            c = Math.sqrt(c);
+            var calculoperimetro = c * 2 + parseInt(base);
+            return "El perimetro es " + calculoperimetro;
+          },
+
+          area: function (altura, base) {
+            var calculoarea = (altura * base) / 2;
+            return "El area es " + calculoarea;
+          },
+        }; // fin return
+      })(); //fin function
+
+      var cuadradoISO = (function () {
+        return {
+          perimetro: function (lado) {
+            var calculoperimetro = 4 * (lado);
+            return "El perimetro es " + calculoperimetro;
+          },
+
+          area: function (lado) {
+            var calculoarea = lado * lado;
+            return "El area es " + calculoarea;
+          },
+        }; // fin return
+      })(); //fin function
+
+      function rectangulo(event) {
+        event.preventDefault();
+        let base = event.target[0].value;
+        let altura = event.target[1].value;
+        document.getElementById("resultado").innerHTML = `
+        El area es: ${rectanguloISO.area(base, altura)}
+        <br>
+        El perimetro es: ${rectanguloISO.perimetro(base, altura)}
+        <br>
+        `;
       }
-      function programa() {
-        let obj = new EntradaDatos();
-        obj.introduceNombre();
-        document.writeln(`El nombre es ${obj.verNombre()} <br>`);
+      function triangulo(event) {
+        event.preventDefault();
+        let base = event.target[0].value;
+        let altura = event.target[1].value;
+        document.getElementById("resultado").innerHTML = `
+        El area es: ${trianguloISO.area(base, altura)}
+        <br>
+        El perimetro es: ${trianguloISO.perimetro(base, altura)}
+        <br>
+        `;
+      }
+      function cuadrado(event) {
+        event.preventDefault();
+        let lado = event.target[0].value;
+        document.getElementById("resultado").innerHTML = `
+        El area es: ${cuadradoISO.area(lado)}
+        <br>
+        El perimetro es: ${cuadradoISO.perimetro(lado)}
+        <br>
+        `;
+      }
+      
+      function select(event) {
+        var selectElement = event.target;
+        var value = parseInt(selectElement.value);
+        switch (value) {
+          case 1:
+            return (document.getElementById(
+              "dataFig"
+            ).innerHTML = `<h1>Rectangulo</h1>
+            <form onsubmit="rectangulo(event)">
+              Base: <input id='base' type='number' value='0' placeholder='Ingresa Base'>
+              Altura: <input id='altura' type='number' value='0' placeholder='Ingresa Altura'>
+              <input type="submit" value="Calcula"/>
+            </form>
+            `);
+            break;
+          case 2:
+            return (document.getElementById(
+              "dataFig"
+            ).innerHTML = `<h1>Triangulo</h1>
+            <form onsubmit="triangulo(event)">
+              Base: <input id='base' type='number' value='0' placeholder='Ingresa Base'>
+              Altura: <input id='altura' type='number' value='0' placeholder='Ingresa Altura'>
+              <input type="submit" value="Calcula"/>
+            </form>
+            `);
+            break;
+          case 3:
+            return (document.getElementById(
+              "dataFig"
+            ).innerHTML = `<h1>Cuadrado</h1>
+            <form onsubmit="cuadrado(event)">
+              Lado: <input id='base' type='number' value='0' placeholder='Ingresa Lado'>
+              <input type="submit" value="Calcula"/>
+            </form>
+            `);
+            break;
+        }
       }
     </script>
   </head>
   <body>
-    <h3>Clase Entrada Datos</h3>
-    <form name="formEntrada">
-      <input type="text" name="txtInicial" />
-      <input type="button" value="Pulsa aquí" onclick="programa()" />
+    <label for=""></label>
+    <select id="select" name="select" onchange="select(event)">
+      <option value="1">Rectangulo</option>
+      <option value="2">Triangulo</option>
+      <option value="3">Cuadrado</option>
+    </select>
+    <div id="dataFig"></div>
+    <div id="resultado"></div>
+    <!--
+  <h2>Calculo Area y perimetro rectangulo</h2>
+
+    <form name="fdatos">
+      Escribe Base: <input type="text" name="entradaA" /> Escribe Altura:
+      <input type="text" name="entradaB" />
+      <input type="button" value="Calcula" onclick="programa()" />
     </form>
+  
+-->
   </body>
 </html>
