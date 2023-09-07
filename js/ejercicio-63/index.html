@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class vocales {
+        constructor(palabra) {
+          this.cadena = palabra;
+          this.vocalesD = "aeiou";
+        }
+
+        totalPorVocal() {
+          var a = 0;
+          var e = 0;
+          var i = 0;
+          var o = 0;
+          var u = 0;
+          var letras = this.cadena.toLowerCase().split("");
+          for (let letra = 0; letra < letras.length; letra++) {
+            switch (letras[letra]) {
+              case "a":
+                a++;
+                break;
+              case "e":
+                e++;
+                break;
+              case "i":
+                i++;
+                break;
+              case "o":
+                o++;
+                break;
+              case "u":
+                u++;
+                break;
+            }
+          }
+          return (document.getElementById("setResult").innerHTML += `
+            a: ${a}
+            <br>
+            e: ${e}
+            <br>
+            i: ${i}
+            <br>
+            o: ${o}
+            <br>
+            u: ${u}
+            `);
+        }
+
+        totalVocales() {
+          var palabra = this.cadena;
+          let totalVocales = 0;
+          for (let item of palabra) {
+            if (this.vocalesD.includes(item.toLowerCase())) {
+              totalVocales++;
+            }
+          }
+          return (document.getElementById(
+            "setResult"
+          ).innerHTML = `total: ${totalVocales}
+            <br>
+            `);
+        }
+      }
+      function General(event) {
+        event.preventDefault();
+        const palabra = event.target[0].value;
+        var obj = new vocales(palabra);
+        obj.totalVocales();
+        obj.totalPorVocal();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="getPalabra">
+      <form onsubmit="General(event)">
+        <input type="text" id="palabra" class="palabra" required />
+        <input type="submit" value="Calcular vocales" />
+      </form>
+    </div>
+    <div id="setResult"></div>
+  </body>
+</html>

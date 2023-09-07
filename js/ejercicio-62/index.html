@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function vocalesTotal(event) {
+        event.preventDefault();
+        console.log(event.target[0].value);
+        const palabra = event.target[0].value;
+        const vocales = "aeiou";
+        let totalVocales = 0;
+        for (let item of palabra) {
+          if (vocales.includes(item.toLowerCase())) {
+            totalVocales++;
+          }
+        }
+        console.log(totalVocales);
+        return (document.getElementById(
+          "setResult"
+        ).innerHTML = `total: ${totalVocales}`);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="getPalabra">
+      <form onsubmit="vocalesTotal(event)">
+        <input type="text" id="palabra" class="palabra" required />
+        <input type="submit" value="Calcular vocales" />
+      </form>
+    </div>
+    <div id="setResult"></div>
+  </body>
+</html>
